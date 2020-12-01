@@ -6,7 +6,8 @@
 
 int main()
 {
-    uint32_t report[] =
+    typedef uint32_t uint;
+    uint report[] =
     {
         1895,
         1602,
@@ -209,14 +210,15 @@ int main()
         1528,
         1246,
     };
-    uint32_t report_size = std::size(report);
+    uint report_size = std::size(report);
 
-    uint32_t index_a = 0, index_b = 0;
-    uint32_t sum = 0, endsum = 0, product = 0;
+    uint index_a = 0, index_b = 0;
+    uint sum = 0, endsum = 0, product = 0;
+    // sum = a + b
     // this won't cover every combo but it worked
-    for (uint32_t i = 0; i < report_size; i++)
+    for (uint i = 0; i < report_size; i++)
     {
-        for (uint32_t j = report_size; j > 0; j--)
+        for (uint j = report_size; j > 0; j--)
         {
             sum = report[i] + report[j];
             if (sum == 2020) {
@@ -232,4 +234,5 @@ int main()
     std::cout << "Index B: " << index_b << "," << " value: " << report[index_b] << "\n";
     std::cout << "Sum: " << endsum << "\n";
     std::cout << "Product: " << product << "\n";
+    return EXIT_SUCCESS;
 }
