@@ -211,10 +211,25 @@ int main()
     };
     uint32_t report_size = std::size(report);
 
-    uint32_t last_index = 0;
+    uint32_t index_a = 0, index_b = 0;
+    uint32_t sum = 0, endsum = 0, product = 0;
+    // this won't cover every combo but it worked
     for (uint32_t i = 0; i < report_size; i++)
     {
-
+        for (uint32_t j = report_size; j > 0; j--)
+        {
+            sum = report[i] + report[j];
+            if (sum == 2020) {
+                endsum = sum;
+                index_a = i;
+                index_b = j;
+                product = report[i] * report[j];
+            }
+        }
     }
-    std::cout << "Hello World!\n";
+
+    std::cout << "Index A: " << index_a << "," << " value: " << report[index_a] << "\n";
+    std::cout << "Index B: " << index_b << "," << " value: " << report[index_b] << "\n";
+    std::cout << "Sum: " << endsum << "\n";
+    std::cout << "Product: " << product << "\n";
 }
